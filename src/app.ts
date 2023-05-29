@@ -1,14 +1,11 @@
-import express from "express"
+import express, { Application } from "express"
 
 
-const app = express();
-app.use(cors());
-const port = 5000
+const app:Application = express();
+// app.use(cors());
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
-app.listen(port, () => {
-    console.log(`UM app listening on port ${port}`)
-})
+export default app;
