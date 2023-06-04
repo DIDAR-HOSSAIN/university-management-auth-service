@@ -18,3 +18,9 @@
     "es2021": true
   }
 }
+
+
+  //  "no-console": "error",
+  //   "no-undef": "error",
+  //   "no-unused-expressions": "error",
+  //   "no-unreachable": "error",
