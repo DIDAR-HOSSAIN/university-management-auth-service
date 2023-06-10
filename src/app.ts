@@ -1,23 +1,23 @@
-import express, { Application, Request, Response } from 'express'
-import cors from 'cors'
-import usersService from './app/modules/users/users.service'
-import usersRouter from './app/modules/users/users.route'
+import express, { Application } from 'express';
+import cors from 'cors';
+import globalErrorHandler from './app/middlewares/globalErrorHandler';
+import { UserRoutes } from './app/modules/user/user.route';
 
-const app: Application = express()
-app.use(cors())
+const app: Application = express();
+app.use(cors());
 
 //parser
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.use('/api/v1/users/', usersRouter)
-app.get('/', async (req: Request, res: Response) => {
-  await usersService.createUser({
-    id: '999',
-    password: '1234',
-    role: 'student',
-  })
-  res.send('Working Successfully')
-})
+app.use('/api/v1/users/', UserRoutes);
 
-export default app
+// // Testing route
+// app.get('/', async(req: Request, res: Response, next: NextFunction) => {
+//   throw new Error('Testing Error logger')
+// })
+
+// Global Error handler
+app.use(globalErrorHandler);
+
+export default app;

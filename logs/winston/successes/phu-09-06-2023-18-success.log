@@ -2,95 +2,83 @@
   message: 'Database Connected Successfully',
   level: 'info',
   label: 'right now!',
-  timestamp: '2023-06-04T11:01:42.059Z'
+  timestamp: '2023-06-09T12:19:20.747Z'
 }
 {
   message: 'UM Application listening on port 5000',
   level: 'info',
   label: 'right now!',
-  timestamp: '2023-06-04T11:01:42.073Z'
+  timestamp: '2023-06-09T12:19:20.756Z'
 }
 {
   message: 'Database Connected Successfully',
   level: 'info',
   label: 'right now!',
-  timestamp: '2023-06-04T11:31:12.654Z'
+  timestamp: '2023-06-09T12:19:24.653Z'
 }
 {
   message: 'UM Application listening on port 5000',
   level: 'info',
   label: 'right now!',
-  timestamp: '2023-06-04T11:31:12.660Z'
+  timestamp: '2023-06-09T12:19:24.659Z'
 }
 {
   message: 'Database Connected Successfully',
   level: 'info',
   label: 'right now!',
-  timestamp: '2023-06-04T11:32:21.292Z'
+  timestamp: '2023-06-09T12:22:02.950Z'
 }
 {
   message: 'UM Application listening on port 5000',
   level: 'info',
   label: 'right now!',
-  timestamp: '2023-06-04T11:32:21.305Z'
+  timestamp: '2023-06-09T12:22:02.956Z'
 }
 {
   message: 'Database Connected Successfully',
   level: 'info',
   label: 'right now!',
-  timestamp: '2023-06-04T11:32:29.656Z'
+  timestamp: '2023-06-09T12:22:24.276Z'
 }
 {
   message: 'UM Application listening on port 5000',
   level: 'info',
   label: 'right now!',
-  timestamp: '2023-06-04T11:32:29.665Z'
+  timestamp: '2023-06-09T12:22:24.283Z'
 }
 {
   message: 'Database Connected Successfully',
   level: 'info',
   label: 'right now!',
-  timestamp: '2023-06-04T11:32:35.662Z'
+  timestamp: '2023-06-09T12:22:26.838Z'
 }
 {
   message: 'UM Application listening on port 5000',
   level: 'info',
   label: 'right now!',
-  timestamp: '2023-06-04T11:32:35.668Z'
+  timestamp: '2023-06-09T12:22:26.844Z'
 }
 {
   message: 'Database Connected Successfully',
   level: 'info',
   label: 'right now!',
-  timestamp: '2023-06-04T11:33:01.384Z'
+  timestamp: '2023-06-09T12:22:30.262Z'
 }
 {
   message: 'UM Application listening on port 5000',
   level: 'info',
   label: 'right now!',
-  timestamp: '2023-06-04T11:33:01.397Z'
+  timestamp: '2023-06-09T12:22:30.274Z'
 }
 {
   message: 'Database Connected Successfully',
   level: 'info',
   label: 'right now!',
-  timestamp: '2023-06-04T11:33:27.923Z'
+  timestamp: '2023-06-09T12:22:50.756Z'
 }
 {
   message: 'UM Application listening on port 5000',
   level: 'info',
   label: 'right now!',
-  timestamp: '2023-06-04T11:33:27.937Z'
-}
-{
-  message: 'Database Connected Successfully',
-  level: 'info',
-  label: 'right now!',
-  timestamp: '2023-06-04T11:34:02.812Z'
-}
-{
-  message: 'UM Application listening on port 5000',
-  level: 'info',
-  label: 'right now!',
-  timestamp: '2023-06-04T11:34:02.818Z'
+  timestamp: '2023-06-09T12:22:50.761Z'
 }
