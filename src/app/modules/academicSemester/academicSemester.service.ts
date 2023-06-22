@@ -24,7 +24,7 @@ const createSemester = async (
   return result;
 };
 
-const getAllsemesters = async (
+const getAllSemesters = async (
   filters: IAcademicSemesterFilters,
   paginationOptions: IPaginationOptions
 ): Promise<IGenericResponse<IAcademicSemester[]>> => {
@@ -137,7 +137,7 @@ const deleteSemester = async (
 
 export const AcademicSemesterService = {
   createSemester,
-  getAllsemesters,
+  getAllSemesters,
   getSingleSemester,
   updateSemester,
   deleteSemester,

@@ -14,7 +14,7 @@ const createUser: RequestHandler = catchAsync(
     sendResponse<IUser>(res, {
       statusCode: httpStatus.OK,
       success: true,
-      message: 'user created successfully!',
+      message: 'User created successfully!',
       data: result,
     });
   }

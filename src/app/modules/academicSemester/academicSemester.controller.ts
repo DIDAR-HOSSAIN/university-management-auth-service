@@ -17,7 +17,7 @@ const createSemester = catchAsync(async (req: Request, res: Response) => {
   sendResponse<IAcademicSemester>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Aademic semester created successfully!',
+    message: 'Academic semester created successfully!',
     data: result,
   });
 });
@@ -26,7 +26,7 @@ const getAllSemesters = catchAsync(async (req: Request, res: Response) => {
   const filters = pick(req.query, academicSemesterFilterableFields);
   const paginationOptions = pick(req.query, paginationFields);
 
-  const result = await AcademicSemesterService.getAllsemesters(
+  const result = await AcademicSemesterService.getAllSemesters(
     filters,
     paginationOptions
   );
