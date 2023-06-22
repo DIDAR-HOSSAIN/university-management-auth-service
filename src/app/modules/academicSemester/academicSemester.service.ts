@@ -1,12 +1,18 @@
 import httpStatus from 'http-status';
-import ApiError from '../../../errors/ApiError';
-import { academicSemesterSearchableFields, academicSemesterTitleCodeMapper } from './academicSemester.constant';
-import { IAcademicSemester, IAcademicSemesterFilters } from './academicSemester.interface';
-import { AcademicSemester } from './academicSemesterModel';
-import { IPaginationOptions } from '../../../interfaces/pagination';
-import { IGenericResponse } from '../../../interfaces/common';
 import { SortOrder } from 'mongoose';
+import ApiError from '../../../errors/ApiError';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
+import { IGenericResponse } from '../../../interfaces/common';
+import { IPaginationOptions } from '../../../interfaces/pagination';
+import {
+  academicSemesterSearchableFields,
+  academicSemesterTitleCodeMapper,
+} from './academicSemester.constant';
+import {
+  IAcademicSemester,
+  IAcademicSemesterFilters,
+} from './academicSemester.interface';
+import { AcademicSemester } from './academicSemester.model';
 
 const createSemester = async (
   payload: IAcademicSemester
@@ -18,11 +24,13 @@ const createSemester = async (
   return result;
 };
 
-const getAllSemesters = async (
+const getAllsemesters = async (
   filters: IAcademicSemesterFilters,
   paginationOptions: IPaginationOptions
 ): Promise<IGenericResponse<IAcademicSemester[]>> => {
   const { searchTerm, ...filtersData } = filters;
+  const { page, limit, skip, sortBy, sortOrder } =
+    paginationHelpers.calculatePagination(paginationOptions);
 
   const andConditions = [];
 
@@ -70,9 +78,6 @@ const getAllSemesters = async (
   //   },
   // ];
 
-  const { page, limit, skip, sortBy, sortOrder } =
-    paginationHelpers.calculatePagination(paginationOptions);
-
   const sortConditions: { [key: string]: SortOrder } = {};
 
   if (sortBy && sortOrder) {
@@ -109,7 +114,17 @@ const updateSemester = async (
   id: string,
   payload: Partial<IAcademicSemester>
 ): Promise<IAcademicSemester | null> => {
-  const result = await AcademicSemester.findOneAndUpdate({_id: id}, payload, {new:true});
+  if (
+    payload.title &&
+    payload.code &&
+    academicSemesterTitleCodeMapper[payload.title] !== payload.code
+  ) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Invalid Semester Code');
+  }
+
+  const result = await AcademicSemester.findOneAndUpdate({ _id: id }, payload, {
+    new: true,
+  });
   return result;
 };
 
@@ -120,11 +135,10 @@ const deleteSemester = async (
   return result;
 };
 
-
 export const AcademicSemesterService = {
   createSemester,
-  getAllSemesters,
+  getAllsemesters,
   getSingleSemester,
   updateSemester,
-  deleteSemester
+  deleteSemester,
 };
