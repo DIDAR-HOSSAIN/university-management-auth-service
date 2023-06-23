@@ -20,6 +20,17 @@ app.use('/api/v1/', routes);
 //   throw new Error('Testing Error logger')
 // })
 
+// const academicSemester = {
+//   code:'01',
+//   year:'2023'
+// }
+// const testId = async()=>{
+//   const testId = await generateFacultyId();
+// console.log(testId);
+
+// }
+// testId();
+
 //global error handler
 app.use(globalErrorHandler);
 
