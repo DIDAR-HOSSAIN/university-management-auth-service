@@ -1,23 +1,26 @@
-/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-unused-expressions */
-import { ErrorRequestHandler, Request, Response } from 'express';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
 import config from '../../config';
 import ApiError from '../../errors/ApiError';
 import handleValidationError from '../../errors/handleValidationError';
+
 import { ZodError } from 'zod';
 import handleCastError from '../../errors/handleCastError';
 import handleZodError from '../../errors/handleZodError';
 import { IGenericErrorMessage } from '../../interfaces/error';
-import { errorLogger } from '../../shared/logger';
+import { errorlogger } from '../../shared/logger';
 
 const globalErrorHandler: ErrorRequestHandler = (
   error,
   req: Request,
-  res: Response
+  res: Response,
+  next: NextFunction
 ) => {
   config.env === 'development'
-    ? console.log(`globalErrorHandler ~~`, { error })
-    : errorLogger.error(`globalErrorHandler ~~`, error);
+    ? console.log(`🐱‍🏍 globalErrorHandler ~~`, { error })
+    : errorlogger.error(`🐱‍🏍 globalErrorHandler ~~`, error);
 
   let statusCode = 500;
   let message = 'Something went wrong !';

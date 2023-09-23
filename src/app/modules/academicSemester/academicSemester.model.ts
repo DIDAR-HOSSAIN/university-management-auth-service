@@ -4,7 +4,7 @@ import ApiError from '../../../errors/ApiError';
 import {
   academicSemesterCodes,
   academicSemesterTitles,
-  academicSemesterMonths,
+  acdemicSemesterMonths,
 } from './academicSemester.constant';
 import { IAcademicSemester } from './academicSemester.interface';
 
@@ -16,7 +16,7 @@ const academicSemesterSchema = new Schema<IAcademicSemester>(
       enum: academicSemesterTitles,
     },
     year: {
-      type: String,
+      type: Number,
       required: true,
     },
     code: {
@@ -27,13 +27,17 @@ const academicSemesterSchema = new Schema<IAcademicSemester>(
     startMonth: {
       type: String,
       required: true,
-      enum: academicSemesterMonths,
+      enum: acdemicSemesterMonths,
     },
     endMonth: {
       type: String,
       required: true,
-      enum: academicSemesterMonths,
+      enum: acdemicSemesterMonths,
     },
+    syncId: {
+      type: String,
+      required: true
+    }
   },
   {
     timestamps: true,
@@ -48,6 +52,7 @@ academicSemesterSchema.pre('save', async function (next) {
     title: this.title,
     year: this.year,
   });
+  console.log(isExist)
   if (isExist) {
     throw new ApiError(
       httpStatus.CONFLICT,

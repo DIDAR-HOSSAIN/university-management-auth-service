@@ -3,9 +3,13 @@ import express, { Application, NextFunction, Request, Response } from 'express';
 import httpStatus from 'http-status';
 import globalErrorHandler from './app/middlewares/globalErrorHandler';
 import routes from './app/routes';
+
+import cookieParser from 'cookie-parser';
+
 const app: Application = express();
 
 app.use(cors());
+app.use(cookieParser());
 
 //parser
 app.use(express.json());
@@ -13,23 +17,12 @@ app.use(express.urlencoded({ extended: true }));
 
 // app.use('/api/v1/users/', UserRoutes);
 // app.use('/api/v1/academic-semesters', AcademicSemesterRoutes);
-app.use('/api/v1/', routes);
+app.use('/api/v1', routes);
 
 //Testing
 // app.get('/', async (req: Request, res: Response, next: NextFunction) => {
 //   throw new Error('Testing Error logger')
 // })
-
-// const academicSemester = {
-//   code:'01',
-//   year:'2023'
-// }
-// const testId = async()=>{
-//   const testId = await generateFacultyId();
-// console.log(testId);
-
-// }
-// testId();
 
 //global error handler
 app.use(globalErrorHandler);
@@ -48,4 +41,5 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   });
   next();
 });
+
 export default app;

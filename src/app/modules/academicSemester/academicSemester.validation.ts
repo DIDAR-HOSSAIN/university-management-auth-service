@@ -13,9 +13,7 @@ const createAcademicSemesterZodSchema = z.object({
     year: z.string({
       required_error: 'Year is required ',
     }),
-    code: z.enum([...academicSemesterCodes] as [string, ...string[]], {
-      required_error: 'Code is required',
-    }),
+    code: z.enum([...academicSemesterCodes] as [string, ...string[]]),
     startMonth: z.enum([...academicSemesterMonths] as [string, ...string[]], {
       required_error: 'Start month is needed',
     }),
@@ -24,8 +22,6 @@ const createAcademicSemesterZodSchema = z.object({
     }),
   }),
 });
-
-///  Ensure 1: Route Level : Update -->  Give me title and code both , neither
 
 const updateAcademicSemesterZodSchema = z
   .object({

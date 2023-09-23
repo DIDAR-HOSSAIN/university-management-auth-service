@@ -1,7 +1,10 @@
+/* eslint-disable no-undef */
 import path from 'path';
 import { createLogger, format, transports } from 'winston';
 import DailyRotateFile from 'winston-daily-rotate-file';
 const { combine, timestamp, label, printf } = format;
+
+//Customm Log Format
 
 const myFormat = printf(({ level, message, label, timestamp }) => {
   const date = new Date(timestamp);
