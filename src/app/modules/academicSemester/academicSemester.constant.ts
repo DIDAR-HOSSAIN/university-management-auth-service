@@ -16,7 +16,7 @@ export const academicSemesterCodes: IAcademicSemesterCodes[] = [
   '03',
 ];
 
-export const academicSemesterMonths: IAcademicSemesterMonths[] = [
+export const acdemicSemesterMonths: IAcademicSemesterMonths[] = [
   'January',
   'February',
   'March',

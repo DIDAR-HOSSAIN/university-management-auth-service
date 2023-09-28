@@ -5,7 +5,7 @@ import validateRequest from '../../middlewares/validateRequest';
 import { ENUM_USER_ROLE } from '../../../enums/user';
 import auth from '../../middlewares/auth';
 import { AcademicSemesterController } from './academicSemester.controller';
-import { AcademicSemesterValidation } from './academicSemester.validation';
+import { AcademicSemesterValidation } from './acdemicSemester.validation';
 const router = express.Router();
 
 router.post(

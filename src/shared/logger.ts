@@ -35,7 +35,7 @@ const logger = createLogger({
   ],
 });
 
-const errorLogger = createLogger({
+const errorlogger = createLogger({
   level: 'error',
   format: combine(label({ label: 'PH' }), timestamp(), myFormat),
   transports: [
@@ -56,4 +56,4 @@ const errorLogger = createLogger({
   ],
 });
 
-export { logger, errorLogger };
+export { logger, errorlogger };
